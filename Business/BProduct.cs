@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Data; 
-using Entity;  
+using Data;
+using Entity;
 
 namespace Business
 {
@@ -14,6 +14,7 @@ namespace Business
             _productoData = new ProductoData();
         }
 
+        // Método para obtener la lista de productos
         public List<Product> ObtenerProductos()
         {
             try
@@ -25,5 +26,32 @@ namespace Business
                 throw new Exception("Error al obtener los productos", ex);
             }
         }
+
+        // Nuevo método para insertar un producto
+        public bool InsertarProducto(Product producto)
+        {
+            try
+            {
+                return _productoData.InsertarProducto(producto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al insertar el producto", ex);
+            }
+        }
+
+        public bool EliminarLogicoProducto(int productId)
+        {
+            try
+            {
+                return _productoData.EliminarLogicoProducto(productId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar lógicamente el producto", ex);
+            }
+        }
+
+
     }
 }

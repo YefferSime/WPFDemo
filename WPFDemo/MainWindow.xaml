@@ -5,10 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFDemo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <TextBox x:Name="txtNombreProducto" Width="200" Height="30" VerticalAlignment="Top" Margin="10" />
-        <Button Content="Buscar" Width="100" Height="30" VerticalAlignment="Top" Margin="220,10,0,0" Click="BuscarProducto_Click"/>
-        <DataGrid x:Name="dgProductos" Margin="10,50,10,10" AutoGenerateColumns="True"/>
+        Title="Gestión de Productos" Height="500" Width="800">
+    <Grid Margin="0,0,0,81">
+        <!-- Formulario de búsqueda -->
+        <TextBox x:Name="txtNombreProducto" Width="200" Height="30" VerticalAlignment="Top" Margin="10"  />
+        <Button Content="Buscar" Width="100" Height="30" VerticalAlignment="Top" Margin="220,10,0,0" 
+                Click="BuscarProducto_Click"/>
+
+        <!-- DataGrid para mostrar productos -->
+        <DataGrid x:Name="dgProductos" Margin="10,50,10,181" AutoGenerateColumns="False" 
+                  IsReadOnly="True" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ProductId}" Width="50"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Name}" Width="200"/>
+                <DataGridTextColumn Header="Precio" Binding="{Binding Price}" Width="100"/>
+                <DataGridTextColumn Header="Stock" Binding="{Binding Stock}" Width="100"/>
+               
+
+                <!-- Columna de botones para eliminar -->
+                <DataGridTemplateColumn Header="Accion" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Eliminar" 
+                                    Click="EliminarProducto_Click" 
+                                    Tag="{Binding ProductId}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Formulario para agregar productos -->
+        <TextBlock Text="Nombre:" VerticalAlignment="Bottom" Margin="10,0,0,120"/>
+        <TextBox x:Name="txtNombreNuevo" Width="200" Height="30" VerticalAlignment="Bottom" Margin="70,0,0,110"/>
+
+        <TextBlock Text="Precio:" VerticalAlignment="Bottom" Margin="10,0,0,80"/>
+        <TextBox x:Name="txtPrecioNuevo" Width="200" Height="30" VerticalAlignment="Bottom" Margin="70,0,0,70"/>
+
+        <TextBlock Text="Stock:" VerticalAlignment="Bottom" Margin="10,0,0,40"/>
+        <TextBox x:Name="txtStockNuevo" Width="200" Height="30" VerticalAlignment="Bottom" Margin="70,0,0,30"/>
+
+     
+
+        <!-- Botón para agregar productos -->
+        <Button Content="Agregar Producto" Width="150" Height="30" VerticalAlignment="Bottom" 
+                Margin="598,0,52,60" Click="AgregarProducto_Click"/>
     </Grid>
 </Window>
