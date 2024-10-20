@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="Gestión de Productos" Height="500" Width="800">
     <Grid Margin="0,0,0,81">
-        <!-- Formulario de búsqueda -->
+        
         <TextBox x:Name="txtNombreProducto" Width="200" Height="30" VerticalAlignment="Top" Margin="10"  />
         <Button Content="Buscar" Width="100" Height="30" VerticalAlignment="Top" Margin="220,10,0,0" 
                 Click="BuscarProducto_Click"/>
 
-        <!-- DataGrid para mostrar productos -->
+        
         <DataGrid x:Name="dgProductos" Margin="10,50,10,181" AutoGenerateColumns="False" 
                   IsReadOnly="True" SelectionMode="Single">
             <DataGrid.Columns>
@@ -22,7 +22,7 @@
                 <DataGridTextColumn Header="Stock" Binding="{Binding Stock}" Width="100"/>
                
 
-                <!-- Columna de botones para eliminar -->
+              
                 <DataGridTemplateColumn Header="Accion" Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -35,7 +35,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <!-- Formulario para agregar productos -->
+      
         <TextBlock Text="Nombre:" VerticalAlignment="Bottom" Margin="10,0,0,120"/>
         <TextBox x:Name="txtNombreNuevo" Width="200" Height="30" VerticalAlignment="Bottom" Margin="70,0,0,110"/>
 
@@ -47,7 +47,6 @@
 
      
 
-        <!-- Botón para agregar productos -->
         <Button Content="Agregar Producto" Width="150" Height="30" VerticalAlignment="Bottom" 
                 Margin="598,0,52,60" Click="AgregarProducto_Click"/>
     </Grid>

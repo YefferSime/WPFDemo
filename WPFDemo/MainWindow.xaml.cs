@@ -18,7 +18,7 @@ namespace WPFDemo
             CargarTodosLosProductos();
         }
 
-        // Método para cargar todos los productos y mostrarlos en el DataGrid
+
         private void CargarTodosLosProductos()
         {
             try
@@ -32,7 +32,7 @@ namespace WPFDemo
             }
         }
 
-        // Método para buscar productos por nombre
+        
         private void BuscarProducto_Click(object sender, RoutedEventArgs e)
         {
             string nombreProducto = txtNombreProducto.Text;
@@ -55,7 +55,7 @@ namespace WPFDemo
             }
         }
 
-        // Método para agregar un nuevo producto
+    
         private void AgregarProducto_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -67,13 +67,13 @@ namespace WPFDemo
                     Stock = int.Parse(txtStockNuevo.Text)
                 };
 
-                // Insertar el producto a través de la capa de negocio
+               
                 bool productoInsertado = _bProduct.InsertarProducto(nuevoProducto);
 
                 if (productoInsertado)
                 {
                     MessageBox.Show("Producto insertado correctamente.");
-                    CargarTodosLosProductos();  // Recargar los productos para reflejar el nuevo producto
+                    CargarTodosLosProductos();  
                 }
                 else
                 {
@@ -86,7 +86,6 @@ namespace WPFDemo
             }
         }
 
-        // Método para eliminar lógicamente un producto
         private void EliminarProducto_Click(object sender, RoutedEventArgs e)
         {
             if (dgProductos.SelectedItem is Product productoSeleccionado)
@@ -99,7 +98,7 @@ namespace WPFDemo
                         if (eliminado)
                         {
                             MessageBox.Show("Producto eliminado correctamente.");
-                            CargarTodosLosProductos();  // Recargar la lista de productos
+                            CargarTodosLosProductos(); 
                         }
                         else
                         {

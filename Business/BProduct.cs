@@ -14,7 +14,7 @@ namespace Business
             _productoData = new ProductoData();
         }
 
-        // Método para obtener la lista de productos
+        
         public List<Product> ObtenerProductos()
         {
             try
@@ -27,7 +27,7 @@ namespace Business
             }
         }
 
-        // Nuevo método para insertar un producto
+        
         public bool InsertarProducto(Product producto)
         {
             try

@@ -9,7 +9,7 @@ namespace Data
     {
         private readonly string _connectionString = DataAccess.cadena;
 
-        // Método para listar productos (ya lo tienes)
+        
         public List<Product> ListarProductos()
         {
             List<Product> productos = new List<Product>();
@@ -51,7 +51,7 @@ namespace Data
             return productos;
         }
 
-        // Método para agregar un producto nuevo
+   
         public bool InsertarProducto(Product producto)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -61,7 +61,7 @@ namespace Data
                     CommandType = CommandType.StoredProcedure
                 };
 
-                // Agregamos los parámetros del procedimiento almacenado
+                
                 command.Parameters.AddWithValue("@name", producto.Name);
                 command.Parameters.AddWithValue("@price", producto.Price);
                 command.Parameters.AddWithValue("@stock", producto.Stock);
@@ -70,9 +70,9 @@ namespace Data
                 try
                 {
                     connection.Open();
-                    int rowsAffected = command.ExecuteNonQuery();  // Ejecuta la inserción
+                    int rowsAffected = command.ExecuteNonQuery();
 
-                    return rowsAffected > 0;  // Retorna true si se insertó correctamente
+                    return rowsAffected > 0; 
                 }
                 catch (SqlException ex)
                 {
@@ -90,7 +90,7 @@ namespace Data
                     CommandType = CommandType.StoredProcedure
                 };
 
-                // Agregar el parámetro del ID del producto
+               
                 command.Parameters.AddWithValue("@product_id", productId);
 
                 try
